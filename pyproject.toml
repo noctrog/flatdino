@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flatdino"
+version = "0.1.0"
+description = "FlatDINO: Compressing DINOv2 patch features into latent tokens"
+requires-python = ">=3.13"
+dependencies = [
+    "albumentationsx>=2.0.12",
+    "dacite>=1.9.2",
+    "einops>=0.8.1",
+    "flax<=0.12.1",
+    "grain>=0.2.15",
+    "jax[cuda12]<=0.8.1; sys_platform == 'linux'",
+    "jax<=0.8.1; sys_platform == 'darwin'",
+    "jmp>=0.0.4",
+    "numpy>=2.3.3",
+    "opencv-python>=4.11.0.86",
+    "optax>=0.2.6",
+    "orbax-checkpoint>=0.11.32",
+    "scikit-image>=0.25.2",
+    "scikit-learn>=1.8.0",
+    "tensorflow; sys_platform == 'linux'",
+    "tensorflow-datasets>=4.9.9",
+    "tqdm>=4.67.1",
+    "transformers==4.57.1",
+    "tyro>=0.9.35",
+    "wandb>=0.22.2",
+    "matplotlib>=3.10.7",
+    "torch",
+    "torchvision",
+    "google-cloud-storage>=3.8.0",
+    "lpips-nnx>=0.1.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[tool.ruff]
+line-length = 100
+
+[tool.setuptools]
+packages = ["flatdino"]
+
+[dependency-groups]
+dev = ["pytest>=9.0.2"]

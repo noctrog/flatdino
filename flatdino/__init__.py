@@ -1,0 +1,2 @@
+from flatdino.autoencoder import FlatDinoAutoencoder as FlatDinoAutoencoder
+from flatdino.vq_autoencoder import VQDinoAutoencoder as VQDinoAutoencoder
